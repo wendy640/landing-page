@@ -1,113 +1,75 @@
-import Image from "next/image";
+"use client";
+import Nav from "@/components/nav";
+import { Input } from "@/components/ui/input";
+import { ChevronRight, Mail } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	return (
+		<main className="p-2 flex flex-col items-center bg-cover bg-center min-h-screen w-full -mt-5 lg:mt-0">
+			<Nav />
+			<section className="intro flex flex-col items-center text-center mx-4 lg:mx-0">
+				<div className="waitlist mt-10 lg:mt-20 bg-[#161616] text-[#F1F7FEB5] rounded-2xl pt-1 pb-1 pl-3 pr-3 flex items-center space-x-3 relative border border-[#4E4E4E]">
+					<p className="text-[#F1F7FEB5] text-sm">Waitlist v1</p>
+					<span className="text-xl font-bold px-2 absolute left-1/2 transform -translate-x-9 -translate-y-1">
+						.
+					</span>
+					<p className="text-[#F1F7FEB5] text-sm">Coming Soon</p>
+				</div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+				<div className="text mt-10 text-white">
+					<h1 className="text-4xl lg:text-7xl">
+						Your paycheck but
+						<span className="hidden lg:inline">
+							<br />
+						</span>{" "}
+						with super powers
+					</h1>
+					<p className="about mt-8 text-base lg:text-lg text-[#F1F7FEB5]">
+						Wagestack is a programmable salary wallet designed for employees
+						<span className="lg:inline hidden">
+							<br />
+						</span>{" "}
+						and integrates well with your favorite payroll platforms.
+					</p>
+				</div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+				<div className="contacts flex items-center space-x-2 mt-10 mb-3">
+					<div className="relative w-full">
+						<Input
+							type="email"
+							placeholder=" "
+							className="w-60 pl-10 bg-[#161616] border-[#4E4E4E]"
+						/>
+						<Mail className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" />
+						<label className="absolute left-10 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none">
+							Email
+						</label>
+					</div>
+				</div>
+				<div className="join mb-7 flex justify-center items-center">
+					<Button variant="outline" size="icon" className="w-60 h-4 p-5">
+						Join the waitlist
+						<ChevronRight className="h-4 w-4 ml-3" />
+					</Button>
+				</div>
+			</section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+			<div className="next mt-60 lg:mt-20 bg-[#161616] rounded-full p-1 flex items-center justify-center border border-gray border-[#4E4E4E]">
+				<p className="flex items-center text-[#F1F7FEB5] space-x-2 text-xs rounded-full ml-2">
+					What’s next after 8000 users @wagestack
+					<Link href="/read">
+						<Button
+							size="sm"
+							className="read-more ml-5 bg-black rounded-full flex items-center space-x-1 px-2"
+						>
+							<span className="text-white">Read more</span>
+							<ChevronRight className="h-3 w-3 text-white" />
+						</Button>
+					</Link>
+				</p>
+			</div>
+		</main>
+	);
 }
