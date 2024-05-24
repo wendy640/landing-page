@@ -98,4 +98,8 @@
       overflow-y: auto; 
     }
   }
+  ::selection {
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 50%, #FFFFFF 100%);
+  color: #000; /* Optional: Change text color on selection */
+}
 }
