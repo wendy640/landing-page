@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/button";
 import user from  "../../components/image/image.png"
 export default function Home() {
 	return (
-		<main className="p-2 flex flex-col items-center bg-cover bg-center min-h-screen w-full -mt-5 lg:mt-0">
+		<main className="p-2 flex flex-col items-center bg-cover bg-center min-h-screen w-full lg:mt-4">
 			<Nav />
-			<section className="intro flex flex-col items-center text-center mx-4 lg:mx-0">
+			<section className="intro flex flex-col items-center text-center mx-4 lg:mx-0 mt-20 lg:mt-14">
 				<div className="waitlist mt-8 lg:mt-6 bg-[#161616] text-[#F1F7FEB5] rounded-2xl pt-1 pb-1 pl-3 pr-3 flex items-center space-x-3 relative border border-[#4E4E4E]">
 					<p className="text-[#F1F7FEB5] text-xs lg:text-sm">
 						April 11th, 2024

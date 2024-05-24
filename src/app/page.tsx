@@ -21,10 +21,10 @@ export default function Home() {
 	};
 
 	return (
-		<main className="p-2 flex flex-col items-center bg-cover bg-center min-h-screen w-full -mt-5 lg:mt-0">
+		<main className="p-2 flex flex-col items-center bg-cover bg-center min-h-screen w-full mt-40 lg:mt-0 ">
 			<Nav />
-			<section className="intro flex flex-col items-center text-center mx-4 lg:mx-0">
-				<div className="waitlist mt-10 lg:mt-20 bg-[#161616] text-[#F1F7FEB5] rounded-2xl pt-1 pb-1 pl-3 pr-3 flex items-center space-x-3 relative border border-[#4E4E4E]">
+			<section className="intro flex flex-col items-center text-center mx-6  lg:mx-0 -mt-10 lg:mt-0">
+				<div className="waitlist mt-6 lg:mt-40 bg-[#161616] text-[#F1F7FEB5] rounded-2xl pt-1 pb-1 pl-3 pr-3 flex items-center space-x-3 relative border border-[#4E4E4E]">
 					<p className="text-[#F1F7FEB5] text-sm">Waitlist v1</p>
 					<span className="text-xl font-bold px-2 absolute left-1/2 transform -translate-x-9 -translate-y-1">
 						.

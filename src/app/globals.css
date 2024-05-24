@@ -95,7 +95,7 @@
       background-attachment: fixed; /* Add this line */
       height: 100vh; /* Ensure it covers full viewport height */
       width: 100vw;  /* Ensure it covers full viewport width */
-      overflow: hidden; /* Prevent scrolling */
+      overflow-y: auto; 
     }
   }
 }
