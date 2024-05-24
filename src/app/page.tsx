@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Nav from "@/components/nav";
 import { Input } from "@/components/ui/input";
 import { ChevronRight, Mail } from "lucide-react";
@@ -6,6 +7,19 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
+	const [email, setEmail] = useState("");
+	const [isFocused, setIsFocused] = useState(false);
+
+	const handleJoinWaitlist = () => {
+		if (email.trim()) {
+			console.log("User email:", email);
+			alert("You have successfully joined the waitlist");
+			setEmail("");
+		} else {
+			alert("Please enter a valid email address");
+		}
+	};
+
 	return (
 		<main className="p-2 flex flex-col items-center bg-cover bg-center min-h-screen w-full -mt-5 lg:mt-0">
 			<Nav />
@@ -35,21 +49,29 @@ export default function Home() {
 					</p>
 				</div>
 
-				<div className="contacts flex items-center space-x-2 mt-10 mb-3">
-					<div className="relative w-full">
+				<div className="contacts flex items-center space-x-2 mt-10 mb-3  lg:w-auto">
+					<div className="relative w-72 md:w-72 lg:w-86">
 						<Input
 							type="email"
-							placeholder=" "
-							className="w-60 pl-10 bg-[#161616] border-[#4E4E4E]"
+							placeholder="Email"
+							className={`pl-10 bg-[#161616] border-[#4E4E4E] ${
+								isFocused ? "text-white" : "text-gray-400"
+							}`}
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+							onFocus={() => setIsFocused(true)}
+							onBlur={() => setIsFocused(false)}
 						/>
 						<Mail className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" />
-						<label className="absolute left-10 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none">
-							Email
-						</label>
 					</div>
 				</div>
-				<div className="join mb-7 flex justify-center items-center">
-					<Button variant="outline" size="icon" className="w-60 h-4 p-5">
+				<div className="join mb-7 flex justify-center items-center w-72 md:w-72 lg:w-86">
+					<Button
+						variant="outline"
+						size="icon"
+						className="w-full h-4 p-5"
+						onClick={handleJoinWaitlist}
+					>
 						Join the waitlist
 						<ChevronRight className="h-4 w-4 ml-3" />
 					</Button>
