@@ -1,19 +1,17 @@
-// firebaseConfig.ts
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyDkO5yg927Eyhh7ckDliac9j5fji9HLLkQ",
-	authDomain: "wagestack-5fda3.firebaseapp.com",
-	projectId: "wagestack-5fda3",
-	storageBucket: "wagestack-5fda3.appspot.com",
-	messagingSenderId: "527785914832",
-	appId: "1:527785914832:web:b1f6296126f389686a89d5",
-	measurementId: "G-BPYBQFMY5E",
+	apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+	authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+	projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+	storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+	messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+	appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+	measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-export { db };
+export  { db };
