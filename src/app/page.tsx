@@ -1,4 +1,6 @@
 "use client";
+import { db } from "./firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
 import { useState } from "react";
 import Nav from "@/components/nav";
 import { Input } from "@/components/ui/input";
@@ -15,12 +17,21 @@ export default function Home() {
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
 	const [popupColor, setPopupColor] = useState("text-red-500");
 
-	const handleJoinWaitlist = () => {
+	const handleJoinWaitlist = async () => {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		if (email.trim() && emailRegex.test(email)) {
-			setPopupMessage("You have successfully joined the waitlist");
-			setPopupColor("text-green-500");
-			setEmail("");
+			try {
+				await addDoc(collection(db, "waitlist"), { email });
+				setPopupMessage("You have successfully joined the waitlist");
+				setPopupColor("text-green-500");
+				setEmail("");
+			} catch (error) {
+				console.error("Error adding document: ", error);
+				setPopupMessage(
+					"There was an error joining the waitlist. Please try again."
+				);
+				setPopupColor("text-red-500");
+			}
 		} else {
 			setPopupMessage("Please enter a valid email address");
 			setPopupColor("text-red-500");
