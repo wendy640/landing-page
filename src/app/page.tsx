@@ -27,7 +27,7 @@ export default function Home() {
 			<section className="intro flex flex-col items-center text-center mx-6 lg:mx-0 -mt-10 lg:-mt-6">
 				<div className="waitlist mt-6 lg:mt-40 bg-[#161616] text-[#F1F7FEB5] rounded-full p-1 pl-3 pr-3 flex items-center space-x-3 relative border border-[#4E4E4E]">
 					<p className="text-[#F1F7FEB5] text-sm">Waitlist v1</p>
-					<span className="text-xl font-bold px-2 absolute left-1/2 transform -translate-x-9 -translate-y-1">
+					<span className="text-xl font-bold px-2.5 absolute left-1/2 transform -translate-x-9 -translate-y-1">
 						.
 					</span>
 					<p className="text-[#F1F7FEB5] text-sm">Coming Soon</p>
