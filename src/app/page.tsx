@@ -43,7 +43,7 @@ export default function Home() {
 							WebkitTextStrokeColor: "rgba(255, 255, 255, 0.50)",
 							fontFamily: "Inter Display, sans-serif",
 							fontWeight: "500",
-							lineHeight: "80px",
+							// lineHeight: "80px",
 							letterSpacing: "-1.8px",
 							background:
 								"linear-gradient(135deg, #FFF 30%, rgba(255, 255, 255, 0.50) 100%)",
