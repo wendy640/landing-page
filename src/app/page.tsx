@@ -1,29 +1,47 @@
-"use client"
+"use client";
 import { useState } from "react";
 import Nav from "@/components/nav";
 import { Input } from "@/components/ui/input";
 import { ChevronRight, Mail } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { AlertPop } from "@/components/alert";
 import "./globals.css";
 
 export default function Home() {
 	const [email, setEmail] = useState("");
 	const [isFocused, setIsFocused] = useState(false);
+	const [popupMessage, setPopupMessage] = useState("");
+	const [isPopupVisible, setIsPopupVisible] = useState(false);
+	const [popupColor, setPopupColor] = useState("text-red-500");
 
 	const handleJoinWaitlist = () => {
-		if (email.trim()) {
-			console.log("User email:", email);
-			alert("You have successfully joined the waitlist");
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (email.trim() && emailRegex.test(email)) {
+			setPopupMessage("You have successfully joined the waitlist");
+			setPopupColor("text-green-500");
 			setEmail("");
 		} else {
-			alert("Please enter a valid email address");
+			setPopupMessage("Please enter a valid email address");
+			setPopupColor("text-red-500");
 		}
+		setIsPopupVisible(true);
+	};
+
+	const closePopup = () => {
+		setIsPopupVisible(false);
 	};
 
 	return (
 		<main className="p-2 flex flex-col items-center bg-cover bg-center min-h-screen w-full mt-40 lg:mt-0">
 			<Nav />
+			{isPopupVisible && (
+				<AlertPop
+					message={popupMessage}
+					onClose={closePopup}
+					color={popupColor}
+				/>
+			)}
 			<section className="intro flex flex-col items-center text-center mx-6 lg:mx-0 -mt-10 lg:-mt-6">
 				<div className="waitlist mt-6 lg:mt-40 bg-[#161616] text-[#F1F7FEB5] rounded-full p-1 pl-3 pr-3 flex items-center space-x-3 relative border border-[#4E4E4E]">
 					<p className="text-[#F1F7FEB5] text-sm">Waitlist v1</p>
@@ -43,7 +61,6 @@ export default function Home() {
 							WebkitTextStrokeColor: "rgba(255, 255, 255, 0.50)",
 							fontFamily: "Inter Display, sans-serif",
 							fontWeight: "500",
-							// lineHeight: "80px",
 							letterSpacing: "-1.8px",
 							background:
 								"linear-gradient(135deg, #FFF 30%, rgba(255, 255, 255, 0.50) 100%)",
@@ -131,7 +148,9 @@ export default function Home() {
 								background: "#000000",
 							}}
 						>
-							<span className="text-white "style={{ fontSize: '12px' }}>Read more</span>
+							<span className="text-white" style={{ fontSize: "12px" }}>
+								Read more
+							</span>
 							<ChevronRight className="h-3 w-3 text-white" />
 						</Button>
 					</Link>
