@@ -16,8 +16,10 @@ export default function Home() {
 	const [popupMessage, setPopupMessage] = useState("");
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
 	const [popupColor, setPopupColor] = useState("text-red-500");
+	const [isLoading, setIsLoading] = useState(false);
 
 	const handleJoinWaitlist = async () => {
+		setIsLoading(true);
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		if (email.trim() && emailRegex.test(email)) {
 			try {
@@ -36,6 +38,7 @@ export default function Home() {
 			setPopupMessage("Please enter a valid email address");
 			setPopupColor("text-red-500");
 		}
+		setIsLoading(false);
 		setIsPopupVisible(true);
 	};
 
@@ -126,14 +129,15 @@ export default function Home() {
 						size="icon"
 						className="w-full h-4 p-5"
 						onClick={handleJoinWaitlist}
+						disabled={isLoading}
 					>
-						Join the waitlist
-						<ChevronRight className="h-4 w-4 ml-3" />
+						{isLoading ? "Joining..." : "Join the waitlist"}
+						{!isLoading && <ChevronRight className="h-4 w-4 ml-3" />}
 					</Button>
 				</div>
 			</section>
 
-			<div className="next mt-40 lg:mt-10 bg-[#161616] rounded-full p-1 flex items-center justify-center border border-gray border-[#4E4E4E]">
+			<div className="next mt-52 lg:mt-10 bg-[#161616] rounded-full p-1 flex items-center justify-center border border-gray border-[#4E4E4E]">
 				<p
 					className="flex items-center text-[#F1F7FEB5] space-x-2 text-xs rounded-full ml-2"
 					style={{
